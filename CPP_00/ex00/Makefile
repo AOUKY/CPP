@@ -1,4 +1,4 @@
-STD = #-std=c++98
+STD = -std=c++98
 CP = c++
 FLAGS = -Wall -Wextra -Werror $(STD)
 FILES = megaphone.cpp

@@ -1,4 +1,4 @@
-# include "main.h"
+# include "PhoneBook.hpp"
 
 void start()
 {
@@ -16,20 +16,20 @@ int main()
 	PhoneBook  book;
 	std::string str;
 	start();
-	while(true)
+	std::cout<< ">";
+	while(std::getline(std::cin, str))
 	{
-		std::cout<< ">";
-		std::getline(std::cin, str);
-		if(!str.compare("ADD") || !str.compare("add"))
-			 book.add();
-		else if(!str.compare("SEARCH") || !str.compare("search"))
+		if(!str.compare("ADD"))
+			book.add();
+		else if(!str.compare("SEARCH"))
 			book.search();
-		else if(!str.compare("EXIT") || !str.compare("exit"))
+		else if(!str.compare("EXIT"))
 		{
 			std::cout<<"All the contacts are lost forever"<<std::endl;
 			exit(0);
 		}
 		else
 			std::cout<<"Command not found. Please enter a valid command (ADD, SEARCH, EXIT)"<<std::endl;
+		std::cout<< ">";
 	}
 }

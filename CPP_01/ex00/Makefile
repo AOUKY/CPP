@@ -1,8 +1,8 @@
-STD = -std=c++98
+STD = #-std=c++98
 CP = c++
 FLAGS = -Wall -Wextra -Werror $(STD)
-FILES = main.cpp Contact.cpp PhoneBook.cpp
-NAME = PhoneBook
+FILES = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+NAME = Zoo
 OBJ = $(FILES:.cpp=.o)
 
 all: $(NAME)
