@@ -37,7 +37,7 @@ int main(int c, char **v)
 		std::cerr << "nothing to replace"<< std::endl;
 		return (1);
 	}	
-	std::ifstream infile(inFileName);
+	std::ifstream infile(inFileName.c_str());
 	if(!infile.is_open())
 	{
 		std::cerr << "Error: Could not open file " << inFileName << std::endl;
@@ -52,7 +52,7 @@ int main(int c, char **v)
 		content.append(line + "\n");
 	infile.close();
 	result = replace(content, s1, s2);
-	std::ofstream outfile((inFileName + ".replace"));
+	std::ofstream outfile((inFileName + ".replace").c_str());
 	if(!outfile.is_open())
 	{
 		std::cerr << "Error: Could not open file " << (inFileName + ".replace") << std::endl;
