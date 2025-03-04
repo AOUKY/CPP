@@ -1,5 +1,11 @@
 #include "Zombie.hpp"
 
+
+Zombie::Zombie()
+{
+	name = "UNKNOW";
+}
+
 void Zombie::announce( void )
 {
 	if(!(get_name()).empty())

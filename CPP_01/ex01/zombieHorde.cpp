@@ -8,7 +8,7 @@ Zombie* zombieHorde( int N, std::string name )
 	if (N <= 0)
 	{
 		std::cout << "set a valid number(n > 0)"<< std::endl;
-		return nullptr;
+		return 0;
 	}
 	zombie = new Zombie[N];
 	i = 0;

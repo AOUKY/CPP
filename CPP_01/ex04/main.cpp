@@ -32,6 +32,11 @@ int main(int c, char **v)
 	std::string s1 = v[2];
 	std::string s2 = v[3];
 
+	if(s1.empty())
+	{
+		std::cerr << "nothing to replace"<< std::endl;
+		return (1);
+	}	
 	std::ifstream infile(inFileName);
 	if(!infile.is_open())
 	{
