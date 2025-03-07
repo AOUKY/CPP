@@ -17,7 +17,7 @@ bool bsp(const Point a, const Point b, const Point c, const Point point)
   Fixed areaBCP = calculateArea(b, c, point);
   Fixed areaCAP = calculateArea(c, a, point);
 
-  if (areaABP == 0 || areaBCP == 0 || areaCAP == 0) 
+  if (areaABP.toFloat() == 0 || areaBCP.toFloat() == 0 || areaCAP.toFloat() == 0) 
     return false;
   Fixed sumAreas = areaABP + areaBCP + areaCAP;
   return (sumAreas == areaABC);

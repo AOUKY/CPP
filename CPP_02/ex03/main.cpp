@@ -3,10 +3,10 @@
 
 int main( void ) 
 {
-	Point a(0,0);
-	Point b(0,4);
-	Point c(4,0);
-	Point p(0.01f,0.01f);
+	Point a(0,3);
+	Point b(3,0);
+	Point c(0,0);
+	Point p(1,1);
 	if(bsp(a,b,c,p))
 		std::cout<< "true"<<std::endl;
 	else
