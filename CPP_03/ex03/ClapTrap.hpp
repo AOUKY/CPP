@@ -3,13 +3,12 @@
 
 #include <iostream>
 class ClapTrap{
-private:
+protected:
 	std::string name;
 	int hitPoints;
 	int energyPoints;
 	int attackDamage;
 public:
-
 	ClapTrap(std::string name);
 	ClapTrap();
 	~ClapTrap();
