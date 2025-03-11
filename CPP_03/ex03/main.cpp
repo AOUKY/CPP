@@ -20,6 +20,7 @@ int main()
 	// std::cout<< "hilt :"<<a.getHitPoints()<<" energy: "<<a.getEnergyPoints()<<" takied damge "<<a.getAttackDamage()<<std::endl;
 	a.highFivesGuys();
 	a.attack("he");
+
 	
 	// b.setAttackDamage(2);
 	// b.attack("bsomoe");
