@@ -2,6 +2,10 @@
 # define AMATERIA_HPP
 
 #include <iostream>
+#include "ICharacter.hpp"
+
+#define PRINT 0
+
 
 class AMateria
 {
@@ -9,14 +13,14 @@ protected:
 	std::string type;
 public:
 	AMateria();
-	AMateria(AMateria& other);
-	AMateria operator=(AMateria& other);
-	~AMateria();
-	
 	AMateria(std::string const &type);
-	std::string const& getType() const; 
+	AMateria(const AMateria& other);
+	AMateria& operator=(const AMateria& other);
+	virtual ~AMateria();
+	
+	std::string const& getType() const;
 	virtual AMateria* clone() const = 0;
-	// virtual void use(ICharacter& target);
+	virtual void use(ICharacter& target);
 };
 
 #endif

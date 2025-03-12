@@ -1,8 +1,8 @@
 STD = -std=c++98
 CP = c++
 FLAGS = -Wall -Wextra -Werror $(STD)
-FILES = main.cpp 
-NAME = Animal
+FILES = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp List.cpp
+NAME = MagicBook
 OBJ = $(FILES:.cpp=.o)
 
 all: $(NAME)

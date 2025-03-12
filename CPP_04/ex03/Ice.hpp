@@ -3,13 +3,10 @@
 class Ice : public AMateria {
 public:
     Ice();
-    Ice( Ice &other);
-    Ice& operator=(Ice &other);
+    Ice(const Ice &other);
+    Ice& operator=(const Ice &other);
     ~Ice();
     
-    AMateria* clone() const ;
-    // void use(ICharacter& target) ;
+    Ice* clone() const ;
+    void use(ICharacter& target) ;
 };
-
-
-//const here and in the amateria 🚨🚨🚨🚨🚨🚨🚨
