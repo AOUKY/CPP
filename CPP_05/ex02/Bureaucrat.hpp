@@ -3,6 +3,9 @@
 
 # include <iostream>
 
+#include "AForm.hpp"
+
+#define PRINT 0
 class Bureaucrat {
 private:
 	const std::string name;
@@ -16,9 +19,12 @@ public:
 
 	const std::string& getName() const;
 	int getGrade() const;
+	void signForm(AForm& form);
 
     void incrementGrade();
     void decrementGrade();
+
+	void executeForm(AForm const & form) const;
 
 	class GradeTooHighException;
 	class GradeTooLowException;

@@ -2,15 +2,18 @@
 
 Bureaucrat::Bureaucrat() : name("unknow") , grade(150) 
 {
-	std::cout << "default constructor of the Bureaucrat " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "default constructor Bureaucrat " << name << " called" << std::endl;
 }
 Bureaucrat::~Bureaucrat() 
 {
-	std::cout << "destructor of the Bureaucrat " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "destructor Bureaucrat " << name << " called" << std::endl;
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name) , grade(other.grade) 
 {
-	std::cout << "copy constructor of the Bureaucrat " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "copy constructor Bureaucrat " << name << " called" << std::endl;
 	if(grade < 1)
 		throw GradeTooHighException();
 	else if(grade > 150)
@@ -18,7 +21,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name) , grade(other.
 }
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) , grade(grade) 
 {
-	std::cout << "constructor of the Bureaucrat " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "constructor Bureaucrat " << name << " called" << std::endl;
 	if(grade < 1)
 		throw GradeTooHighException();
 	else if(grade > 150)
@@ -49,11 +53,37 @@ void Bureaucrat::incrementGrade()
 	grade--;
 }
 
+void Bureaucrat::signForm(AForm& form)
+{
+	try 
+	{
+        form.beSigned(*this); 
+        std::cout << name << " signed " << form.getName() << std::endl;
+    } catch (std::exception& e) 
+	{
+        std::cout << name << " couldn't sign " << form.getName() 
+                  << " because " << e.what() << std::endl;
+    }
+}
+
 void Bureaucrat::decrementGrade()
 {
 	if(grade == 150)
 		throw GradeTooLowException();
 	grade++;
+}
+
+void Bureaucrat::executeForm(AForm const& form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << name << " executed " << form.getName() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << name << " couldn't  execute " << form.getName() << " because " << e.what() <<std::endl;
+	}
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()

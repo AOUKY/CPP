@@ -1,8 +1,8 @@
 STD = -std=c++98
 CP = c++
 FLAGS = -Wall -Wextra -Werror $(STD)
-FILES = main.cpp Bureaucrat.cpp Form.cpp 
-NAME = Form
+FILES = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+NAME = Forms
 OBJ = $(FILES:.cpp=.o)
 
 all: $(NAME)

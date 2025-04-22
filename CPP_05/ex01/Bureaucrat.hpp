@@ -3,6 +3,8 @@
 
 # include <iostream>
 
+#include "Form.hpp"
+
 class Bureaucrat {
 private:
 	const std::string name;
@@ -16,6 +18,7 @@ public:
 
 	const std::string& getName() const;
 	int getGrade() const;
+	void signForm(Form& form);
 
     void incrementGrade();
     void decrementGrade();
