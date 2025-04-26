@@ -66,10 +66,9 @@ void testFailures() {
 }
 
 int main() {
-    testShrubbery();      
-    testRobotomy();       
-    testPresidential();   
-    testFailures();       
-
+    testPresidential();
+    testRobotomy();
+    testShrubbery();
+    testFailures();
     return 0;
 }
