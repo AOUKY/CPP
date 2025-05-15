@@ -2,11 +2,13 @@
 
 Bureaucrat::Bureaucrat() : name("unknow") , grade(150) 
 {
-	std::cout << "default constructor Bureaucrat " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "default constructor Bureaucrat " << name << " called" << std::endl;
 }
 Bureaucrat::~Bureaucrat() 
 {
-	std::cout << "destructor Bureaucrat " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "destructor Bureaucrat " << name << " called" << std::endl;
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name) , grade(other.grade) 
 {
@@ -18,7 +20,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name) , grade(other.
 }
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) , grade(grade) 
 {
-	std::cout << "constructor Bureaucrat " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "constructor Bureaucrat " << name << " called" << std::endl;
 	if(grade < 1)
 		throw GradeTooHighException();
 	else if(grade > 150)

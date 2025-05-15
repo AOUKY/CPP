@@ -3,6 +3,7 @@
 
 # include <iostream>
 
+# define PRINT 0
 class Bureaucrat {
 private:
 	const std::string name;

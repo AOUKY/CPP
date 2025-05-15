@@ -2,12 +2,14 @@
 
 Form::Form() : name("unknow"), isSigned(false), gradeToSign(150), gradeToExecute(150)
 {
-	std::cout << "Default constructor of the Form " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "Default constructor of the Form " << name << " called" << std::endl;
 }
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-	std::cout << "constructor of the Form " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "constructor of the Form " << name << " called" << std::endl;
 	if(gradeToSign < 1)
 		throw GradeTooHighException();
 	else if(gradeToSign > 150)
@@ -40,7 +42,8 @@ Form& Form::operator=(const Form& other)
 
 Form::~Form()
 {
-	std::cout << "destructor of the Form " << name << " called" << std::endl;
+	if(PRINT)
+		std::cout << "destructor of the Form " << name << " called" << std::endl;
 }
 
 const std::string& Form::getName() const
@@ -79,8 +82,12 @@ const char* Form::GradeTooHighException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << form.getName() << ", Form status: " << (form.get_isSigned() ? "signed" : "unsigned")
-       << ", grade required to sign: " << form.getGradeToSign()
-       << ", grade required to execute: " << form.getGradeToExecute();
+    os << form.getName() << ", Form status: ";
+	if(form.get_isSigned())
+		os <<  "signed";
+	else
+		os << "unsigned";
+    os << ", grade required to sign: " << form.getGradeToSign()
+       << ", grade required to execute: " << form.getGradeToExecute()   ;
     return os;
 }
