@@ -21,7 +21,7 @@ ScalarConverter::~ScalarConverter() {
 	std::cout << "ScalarConverter destructur called" << std::endl;
 }
 
-bool ScalarConverter::isChar(const std::string& str)
+bool isChar(const std::string& str)
 {
 	char c;
 
@@ -35,7 +35,7 @@ bool ScalarConverter::isChar(const std::string& str)
 	return true;
 }
 
-bool ScalarConverter::isInt(const std::string& str)
+bool isInt(const std::string& str)
 {
 	long n;
 	char *end;
@@ -53,18 +53,18 @@ bool ScalarConverter::isInt(const std::string& str)
 	else
 		std::cout << "char :  Non displayable" << std::endl;
 	std::cout << "int : " << nb << std::endl;
-	std::cout << "float : " << static_cast<float>(nb) << std::endl;
+	std::cout << "float : " << static_cast<float>(nb) << 'f' << std::endl;
 	std::cout << "double : " << static_cast<double>(nb) << std::endl;
 	return true;
 }
-bool ScalarConverter::isEmpty(const char* str) 
+bool isEmpty(const char* str) 
 {
     if (str == 0) 
 		return true; 
     return std::string(str).find_first_not_of(' ') == std::string::npos;
 }
 
-bool ScalarConverter::isFloat(const std::string& str)
+bool isFloat(const std::string& str)
 {
 	float f;
 	char *end;
@@ -93,7 +93,7 @@ bool ScalarConverter::isFloat(const std::string& str)
 	std::cout << "double : " << static_cast<double>(f) << std::endl;
 	return true;
 }
-bool ScalarConverter::isDouble(const std::string& str)
+bool isDouble(const std::string& str)
 {
 	double f;
 	char *end;
@@ -124,7 +124,7 @@ bool ScalarConverter::isDouble(const std::string& str)
 	return true;
 }
 
-void ScalarConverter::printing_special(std::string str)
+void printing_special(std::string str)
 {
 	std::cout << "char : impossible" << std::endl;
 	std::cout << "int : impossible" << std::endl;
@@ -132,7 +132,7 @@ void ScalarConverter::printing_special(std::string str)
 	std::cout << "double : " << str << std::endl;
 }
 
-bool ScalarConverter::isSpecial(const std::string& str)
+bool isSpecial(const std::string& str)
 {
 	std::string special_type[] = {"inf", "+inf", "inff", "+inff", "-inf", "-inff", "nan", "nanf"};;
 	
@@ -155,11 +155,11 @@ bool ScalarConverter::isSpecial(const std::string& str)
 void ScalarConverter::convert(const std::string& str)
 {
 	bool (*types[5])(const std::string&) = {
-        &ScalarConverter::isSpecial,
-        &ScalarConverter::isChar,
-        &ScalarConverter::isInt,
-        &ScalarConverter::isFloat,
-        &ScalarConverter::isDouble
+        &isSpecial,
+        &isChar,
+        &isInt,
+        &isFloat,
+        &isDouble
     };
 	std::cout << std::fixed << std::setprecision(1);
 	for(int i = 0; !(types[i](str)); i++)
