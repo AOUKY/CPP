@@ -13,7 +13,7 @@ Array<T>::Array(unsigned int n) : elements(new T[n]()), _size(n) {}
 
 template <typename T>
 Array<T>::Array(const Array& other) : elements(new T[other._size]), _size(other._size) {
-    for (int i = 0; i < _size; ++i)
+    for (size_t i = 0; i < _size; ++i)
         elements[i] = other.elements[i];
 }
 
