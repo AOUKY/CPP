@@ -1,8 +1,8 @@
 STD = -std=c++98
 CP = c++
 FLAGS = -Wall -Wextra -Werror $(STD)
-FILES = main.cpp RPN.cpp
-NAME = RPN
+FILES = main.cpp PmergeMe.cpp
+NAME = PmergeMe
 OBJ = $(FILES:.cpp=.o)
 
 all: $(NAME)
