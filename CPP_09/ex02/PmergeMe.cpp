@@ -87,8 +87,12 @@ void deque_sorting(std::deque<int> &v)
 {
 	if(v.size() == 1)
 		return ;
-	if(v.size() == 2 && v[0] > v[1])
-		return std::swap(v[0], v[1]);
+	if(v.size() == 2)
+	{
+		if(v[0] > v[1])
+			return std::swap(v[0], v[1]);
+		return ;
+	}
 	std::deque< std::pair<int, int> > pairs;
 	for(size_t i = 0; i < v.size(); i+=2){
 		if(i + 1 <  v.size())
@@ -154,8 +158,12 @@ void sorting(std::vector<int> &v)
 {
 	if(v.size() == 1)
 		return ;
-	if(v.size() == 2 && v[0] > v[1])
-		return std::swap(v[0], v[1]);
+	if(v.size() == 2)
+	{
+		if(v[0] > v[1])
+			return std::swap(v[0], v[1]);
+		return ;
+	}
 	std::vector< std::pair<int, int> > pairs;
 	for(size_t i = 0; i < v.size(); i+=2){
 		if(i + 1 <  v.size())
